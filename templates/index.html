@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo Costo Uniforme y Dijkstra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Algoritmo: Costo uniforme y Dijkstra</h1>
+        <form action="/ejecutar_dijkstra" method="post">
+            <input type="submit" value="Algoritmo Dijkstra">
+        </form>
+        <form action="/ejecutar_costo_uniforme" method="post">
+            <input type="submit" value="Algoritmo Costo Uniforme">
+        </form>
+        {% if resultado_dijkstra %}
+            <h2>Resultado Dijkstra:</h2>
+            <p>Ruta: {{ resultado_dijkstra }}</p>
+            <p>Costo del viaje: {{ costo_viaje_dijkstra }} KM</p>
+        {% endif %}
+        {% if resultado_costo_uniforme %}
+            <h2>Resultado Costo Uniforme:</h2>
+            <p>Ruta: {{ resultado_costo_uniforme }}</p>
+            <!-- Agrega aquí cualquier otro detalle que desees mostrar -->
+        {% endif %}
+    </div>
+</body>
+</html>
