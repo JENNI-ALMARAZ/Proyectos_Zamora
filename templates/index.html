@@ -3,59 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algoritmo Costo Uniforme y Dijkstra</title>
+    <title>Algoritmos de Búsqueda</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 20px auto;
-            background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #333;
             text-align: center;
         }
         form {
-            text-align: center;
+            display: flex;
+            justify-content: center;
             margin-bottom: 20px;
         }
-        input[type="submit"] {
+        form input[type="submit"] {
             background-color: #007bff;
             color: #fff;
             border: none;
             padding: 10px 20px;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
-        input[type="submit"]:hover {
+        form input[type="submit"]:hover {
             background-color: #0056b3;
         }
         h2 {
-            color: #333;
             margin-top: 20px;
         }
         p {
-            color: #666;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Algoritmo: Costo uniforme y Dijkstra</h1>
+        <h1>Algoritmos de Búsqueda</h1>
         <form action="/ejecutar_dijkstra" method="post">
-            <input type="submit" value="Algoritmo Dijkstra">
+            <input type="submit" value="Ejecutar Dijkstra">
         </form>
         <form action="/ejecutar_costo_uniforme" method="post">
-            <input type="submit" value="Algoritmo Costo Uniforme">
+            <input type="submit" value="Ejecutar Costo Uniforme">
+        </form>
+        <form action="/ejecutar_hill_climbing" method="post">
+            <input type="submit" value="Ejecutar Hill Climbing">
+        </form>
+        <form action="/ejecutar_annealing" method="post">
+            <input type="submit" value="Ejecutar Annealing">
         </form>
         {% if resultado_dijkstra %}
             <h2>Resultado Dijkstra:</h2>
@@ -65,7 +70,20 @@
         {% if resultado_costo_uniforme %}
             <h2>Resultado Costo Uniforme:</h2>
             <p>Ruta: {{ resultado_costo_uniforme }}</p>
-            <!-- Agrega aquí cualquier otro detalle que desees mostrar -->
+        {% endif %}
+        {% if resultado_hill_climbing %}
+            <h2>Resultado Hill Climbing:</h2>
+            <p>Ruta: {{ resultado_hill_climbing }}</p>
+            {% if distancia_total %}
+                <p>Distancia total: {{ distancia_total }}</p>
+            {% endif %}
+        {% endif %}
+        {% if resultado_annealing %}
+            <h2>Resultado Annealing:</h2>
+            <p>Ruta: {{ resultado_annealing }}</p>
+            {% if distancia_total %}
+                <p>Distancia total: {{ distancia_total }}</p>
+            {% endif %}
         {% endif %}
     </div>
 </body>
